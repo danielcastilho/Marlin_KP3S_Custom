@@ -2,6 +2,7 @@ from __future__ import print_function
 import sys
 
 #dynamic build flags for generic compile options
+print("Building in STM32F1 environment","Is File is _mains_",__name__)
 if __name__ == "__main__":
   args = " ".join([ "-std=gnu++14",
                     "-Os",
