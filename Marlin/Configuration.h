@@ -138,24 +138,24 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE  TMC2130_STANDALONE
-#define Y_DRIVER_TYPE  TMC2130_STANDALONE
-#define Z_DRIVER_TYPE  TMC2130_STANDALONE
-//#define X2_DRIVER_TYPE TMC2130_STANDALONE
-//#define Y2_DRIVER_TYPE TMC2130_STANDALONE
-//#define Z2_DRIVER_TYPE TMC2130_STANDALONE
-//#define Z3_DRIVER_TYPE TMC2130_STANDALONE
-//#define Z4_DRIVER_TYPE TMC2130_STANDALONE
-//#define I_DRIVER_TYPE  TMC2130_STANDALONE
-//#define J_DRIVER_TYPE  TMC2130_STANDALONE
-//#define K_DRIVER_TYPE  TMC2130_STANDALONE
-//#define U_DRIVER_TYPE  TMC2130_STANDALONE
-//#define V_DRIVER_TYPE  TMC2130_STANDALONE
-//#define W_DRIVER_TYPE  TMC2130_STANDALONE
-#define E0_DRIVER_TYPE TMC2130_STANDALONE
-//#define E1_DRIVER_TYPE TMC2130_STANDALONE
-//#define E2_DRIVER_TYPE TMC2130_STANDALONE
-//#define E3_DRIVER_TYPE TMC2130_STANDALONE
+#define X_DRIVER_TYPE  TMC2208_STANDALONE
+#define Y_DRIVER_TYPE  TMC2208_STANDALONE
+#define Z_DRIVER_TYPE  TMC2208_STANDALONE
+//#define X2_DRIVER_TYPE TMC2208_STANDALONE
+//#define Y2_DRIVER_TYPE TMC2208_STANDALONE
+//#define Z2_DRIVER_TYPE TMC2208_STANDALONE
+//#define Z3_DRIVER_TYPE TMC2208_STANDALONE
+//#define Z4_DRIVER_TYPE TMC2208_STANDALONE
+//#define I_DRIVER_TYPE  TMC2208_STANDALONE
+//#define J_DRIVER_TYPE  TMC2208_STANDALONE
+//#define K_DRIVER_TYPE  TMC2208_STANDALONE
+//#define U_DRIVER_TYPE  TMC2208_STANDALONE
+//#define V_DRIVER_TYPE  TMC2208_STANDALONE
+//#define W_DRIVER_TYPE  TMC2208_STANDALONE
+#define E0_DRIVER_TYPE TMC2208_STANDALONE
+//#define E1_DRIVER_TYPE TMC2208_STANDALONE
+//#define E2_DRIVER_TYPE TMC2208_STANDALONE
+//#define E3_DRIVER_TYPE TMC2208_STANDALONE
 //#define E4_DRIVER_TYPE TMC2130_STANDALONE
 //#define E5_DRIVER_TYPE TMC2130_STANDALONE
 //#define E6_DRIVER_TYPE TMC2130_STANDALONE
@@ -525,7 +525,7 @@
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  *
  */
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 504
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -625,7 +625,7 @@
  * (especially before PID tuning). Setting the target temperature too close to MAXTEMP guarantees
  * a MAXTEMP shutdown! Use these values to forbid temperatures being set too close to MAXTEMP.
  */
-#define HOTEND_OVERSHOOT 15   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
+#define HOTEND_OVERSHOOT  9   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
 #define BED_OVERSHOOT    10   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
 #define COOLER_OVERSHOOT  2   // (°C) Forbid temperatures closer than OVERSHOOT
 
@@ -640,8 +640,8 @@
 #define PIDTEMP          // See the PID Tuning Guide at https://reprap.org/wiki/PID_Tuning
 //#define MPCTEMP        // ** EXPERIMENTAL **
 
-#define BANG_MAX 200     // Limits current to nozzle while in bang-bang mode; 255=full current
-#define PID_MAX 150      // [!KP3S]Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
+#define BANG_MAX 220     // Limits current to nozzle while in bang-bang mode; 255=full current
+#define PID_MAX 140      // [!KP3S]Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 
 #if ENABLED(PIDTEMP)
@@ -657,9 +657,9 @@
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
     // from M303 C9 S240 U1
-    #define DEFAULT_Kp 6.23
-    #define DEFAULT_Ki 0.25
-    #define DEFAULT_Kd 39.10
+    #define DEFAULT_Kp 6.43
+    #define DEFAULT_Ki 0.26
+    #define DEFAULT_Kd 40.51
   #endif
 #endif
 
@@ -2411,7 +2411,7 @@
  *
  *   Caveats: The ending Z should be the same as starting Z.
  */
-#define NOZZLE_CLEAN_FEATURE
+//#define NOZZLE_CLEAN_FEATURE
 
 #if ENABLED(NOZZLE_CLEAN_FEATURE)
   // Default number of pattern repetitions
@@ -2683,7 +2683,7 @@
 // Note: Test audio output with the G-Code:
 //  M300 S<frequency Hz> P<duration ms>
 //
-#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 2
+#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 20
 #define LCD_FEEDBACK_FREQUENCY_HZ 5000
 
 //
