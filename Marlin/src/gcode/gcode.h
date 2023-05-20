@@ -345,14 +345,20 @@ enum AxisRelative : uint8_t {
   #if HAS_EXTRUDERS
     , E_MODE_ABS, E_MODE_REL
   #endif
+  , NUM_REL_MODES
 };
+typedef bits_t(NUM_REL_MODES) relative_t;
 
 extern const char G28_STR[];
 
 class GcodeSuite {
 public:
 
-  static axis_bits_t axis_relative;
+  static relative_t axis_relative;
+
+  GcodeSuite() { // Relative motion mode for each logical axis
+    axis_relative = AxisBits(AXIS_RELATIVE_MODES).bits;
+  }
 
   static bool axis_is_relative(const AxisEnum a) {
     #if HAS_EXTRUDERS
@@ -1041,6 +1047,7 @@ private:
 
   #if ENABLED(FT_MOTION)
     static void M493();
+    static void M493_report(const bool forReplay=true);
   #endif
 
   static void M500();
