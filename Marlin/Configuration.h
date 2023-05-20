@@ -669,7 +669,7 @@
 #define PIDTEMP           // See the PID Tuning Guide at https://reprap.org/wiki/PID_Tuning
 //#define MPCTEMP         // ** EXPERIMENTAL ** See https://marlinfw.org/docs/features/model_predictive_control.html
 
-#define PID_MAX  230      // Limit hotend current while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
+#define PID_MAX  240      // Limit hotend current while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95       // Smoothing factor within any PID loop
 
 #if ENABLED(PIDTEMP)
@@ -690,7 +690,7 @@
     #define DEFAULT_Kd 41.67
   #endif
 #else
-  #define BANG_MAX 225    // Limit hotend current while in bang-bang mode; 255=full current
+  #define BANG_MAX 210    // Limit hotend current while in bang-bang mode; 255=full current
 #endif
 
 /**
