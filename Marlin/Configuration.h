@@ -685,9 +685,9 @@
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
     // from M303 C9 S240 U1
-    #define DEFAULT_Kp 6.61
-    #define DEFAULT_Ki 0.26
-    #define DEFAULT_Kd 41.67
+    #define DEFAULT_Kp 10.93
+    #define DEFAULT_Ki 0.52
+    #define DEFAULT_Kd 57.05
   #endif
 #else
   #define BANG_MAX 210    // Limit hotend current while in bang-bang mode; 255=full current
